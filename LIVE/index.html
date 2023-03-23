@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Contenedor Phone AD</title>
+  
+
+</head>
+<body>
+<h1 style="text-align: center;font-family: arial;margin-top: 18px;">DEMO LIVE DIRECTORIO CACHIPAY</h1><h1 style="margin-left: 39%;">
+<div class="container">
+  <div class="notch">
+    <div class="time" id="current-time">--:--</div>
+  </div>
+  <div class="screen" style="padding-top: 0px; padding-left: 10px; padding-right: 10px;">
+    
+    <iframe id="DC" title="DC" width="100%" height="70%" style="border:none;border-radius: 12px;" src="https://fenixfgx.github.io/directoriocachipay/Flappy/"></iframe>
+    <button onclick="window.history.back()"  style="
+    background-color: black;
+    border: none;
+    border-radius: 12px;
+    margin-left: 38%;
+    height: 20px;
+    width: 60px;
+    margin-top: 2px;
+    color: white;
+"> ◀</button>
+      
+    </div>
+  </div>
+  
+</div>
+
+<style>
+    
+ .container {
+  display: inline-block;
+  width: 370px;
+  margin-left: 0%;
+  height: 592px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.notch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  background-color: #000;
+  border-radius: 0 0 50% 50%;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.screen {
+  background-color: #fff;
+  height: 724px;
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 58px;
+}
+
+.button {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #555;
+}
+  
+  
+</style>
+
+<script>
+  // Obtener el elemento "time"
+  const timeEl = document.getElementById('current-time');
+  // Obtener el botón de retroceso
+  const backButton = document.createElement('button');
+  backButton.textContent = 'Volver atrás';
+  backButton.style.display = 'block';
+  backButton.style.margin = 'auto';
+  backButton.style.marginTop = '10px';
+  backButton.style.padding = '10px';
+  backButton.style.borderRadius = '5px';
+  backButton.style.backgroundColor = '#333';
+  backButton.style.color = '#fff';
+
+  // Función para obtener la hora actual en formato de 12 horas
+  function getCurrentTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    const formattedTime = `${hours < 10 ? '0' + hours : hours}:${minutes < 10 ? '0' + minutes : minutes} ${ampm}`;
+    return formattedTime;
+  }
+
+  // Función para actualizar la hora actual cada segundo
+  function updateTime() {
+    const currentTime = getCurrentTime();
+    timeEl.textContent = currentTime;
+  }
+
+  // Añadir el botón de retroceso a la pantalla del celular
+  const screenEl = document.querySelector('.screen');
+  screenEl.appendChild(backButton);
+
+  // Volver atrás al hacer clic en el botón de retroceso
+  backButton.addEventListener('click', () => {
+    window.history.back();
+  });
+
+  // Actualizar la hora actual cada segundo
+  setInterval(updateTime, 1000);
+</script>
+<!-- partial -->
+  
+</body>
+</html>
