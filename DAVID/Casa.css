@@ -1,3 +1,122 @@
+/* ========== CARRUSEL DE TECNOLOGÍAS ========== */
+.tech-carousel-container {
+  width: 100%;
+  padding: 40px 0;
+  margin-top: 30px;
+  overflow: hidden;
+}
+
+.tech-carousel-title {
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+
+.tech-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.tech-carousel-track {
+  display: flex;
+  gap: 50px;
+  animation: scrollTech 25s linear infinite;
+  width: max-content;
+}
+
+.tech-carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 80px;
+  transition: transform 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: scale(1.15);
+}
+
+.tech-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  transition: filter 0.3s ease;
+}
+
+.tech-item:hover img {
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.tech-item span {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 500;
+}
+
+@keyframes scrollTech {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 767px) {
+  .tech-carousel-track {
+    gap: 35px;
+    animation-duration: 20s;
+  }
+  
+  .tech-item img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .tech-item span {
+    font-size: 0.75rem;
+  }
+  
+  .tech-carousel-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .tech-carousel-container {
+    padding: 25px 0;
+  }
+  
+  .tech-carousel-track {
+    gap: 25px;
+    animation-duration: 18s;
+  }
+  
+  .tech-item img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .tech-item span {
+    font-size: 0.7rem;
+  }
+}
+
+/* ========== FIN CARRUSEL DE TECNOLOGÍAS ========== */
+
  .u-section-1 {
   background-image: url("images/62813509c62e12dce5d66ab10fa3b9c6d5f81b87212b75c7b72e774e668ab3287060ae80156bb9aaabc3d89d078c19c2614f72b98f2cb0863cfd8e_1280.jpg");
   background-position: 50% 50%;
@@ -242,6 +361,70 @@
 
 .u-section-2 .u-text-8 {
   margin: 29px 0 0;
+}
+
+/* Nuevos estilos para items adicionales del acordeón */
+.u-section-2 .u-accordion-link-7,
+.u-section-2 .u-accordion-link-8,
+.u-section-2 .u-accordion-link-9 {
+  font-size: 1.25rem;
+  background-image: none;
+  text-decoration: none solid rgb(17, 17, 17);
+  font-weight: 700;
+}
+
+.u-section-2 .u-icon-7,
+.u-section-2 .u-icon-8,
+.u-section-2 .u-icon-9 {
+  height: 15px;
+  width: 15px;
+}
+
+.u-section-2 .u-accordion-pane-7,
+.u-section-2 .u-accordion-pane-8,
+.u-section-2 .u-accordion-pane-9 {
+  min-height: 155px;
+  height: auto;
+}
+
+.u-section-2 .u-container-layout-9,
+.u-section-2 .u-container-layout-10,
+.u-section-2 .u-container-layout-11 {
+  padding: 30px;
+}
+
+.u-section-2 .u-text-9,
+.u-section-2 .u-text-10,
+.u-section-2 .u-text-11 {
+  margin: 0;
+}
+
+/* Animaciones y transiciones para el acordeón */
+.u-section-2 .u-accordion-1 .u-accordion-pane {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.u-section-2 .u-accordion-1 .u-accordion-item.active-accordion .u-accordion-pane,
+.u-section-2 .u-accordion-1 .u-accordion-pane[style*="display: block"],
+.u-section-2 .u-accordion-1 .u-accordion-pane.show {
+  max-height: 500px;
+  opacity: 1;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.u-section-2 .u-accordion-1 .u-accordion-link-icon {
+  transition: transform 0.3s ease;
+}
+
+.u-section-2 .u-accordion-1 .u-accordion-item.active-accordion .u-accordion-link-icon,
+.u-section-2 .u-accordion-1 .u-accordion-link[aria-selected="true"] .u-accordion-link-icon {
+  transform: rotate(90deg);
 }
 
 .u-section-2 .u-layout-cell-2 {
